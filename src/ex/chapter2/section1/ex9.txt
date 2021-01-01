@@ -1,0 +1,41 @@
+2.1.9 按照算法2.3所示轨迹的格式给出选择排序是如何将数组E A S Y S H E L L S O R T Q U E S T I O N排序的
+
+解答：
+    E A S Y S H E L L S O R T |Q U E S T I O N       h=13
+    E A E S |S H E L |L S O R |T Q U S |Y T I O |N  h=4
+    E A E S |S H E L |L S O R |T Q U S |Y T I O |N  h=4
+    E A E S |L H E L |S S O R |T Q U S |Y T I O |N  h=4
+    E A E S |L H E L |S S O R |T Q U S |Y T I O |N  h=4
+    E A E S |L H E L |S S O R |T Q U S |Y T I O |N  h=4
+    E A E S |L H E L |N S O R |S Q U S |T T I O |Y  h=4
+    E A E S |L H E L |N S O R |S Q U S |T T I O |Y  h=4
+    E A E S |L H E L |N S O R |S Q U S |T T I O |Y  h=4
+    E A E S |L H E L |N Q O R |S S U S |T T I O |Y  h=4
+    E A E S |L H E L |N Q O R |S S U S |T T I O |Y  h=4
+    E A E S |L H E L |N Q O R |S S U S |T T I O |Y  h=4
+    E A E S |L H E L |N Q O R |S S U S |T T I O |Y  h=4
+    E A E S |L H E L |N Q O R |S S U S |T T I O |Y  h=4
+    E A E S |L H E L |N Q I R |S S O S |T T U O |Y  h=4
+    E A E L |L H E S |N Q O R |S S U S |T T I O |Y  h=4
+    E A E L |L H E S |N Q O R |S S U S |T T I O |Y  h=4
+    E A E L |L H E S |N Q O S |S S U R |T T I O |Y  h=4
+    E A E L |L H E O |N Q O R |S S U S |T T I S |Y  h=4
+    A E E L L H E O N Q O R S S U S T T I S Y       h=1
+    A E E L L H E O N Q O R S S U S T T I S Y       h=1
+    A E E L L H E O N Q O R S S U S T T I S Y       h=1
+    A E E L L H E O N Q O R S S U S T T I S Y       h=1
+    A E E H L L E O N Q O R S S U S T T I S Y       h=1
+    A E E E H L L O N Q O R S S U S T T I S Y       h=1
+    A E E E H L L O N Q O R S S U S T T I S Y       h=1
+    A E E E H L L N O Q O R S S U S T T I S Y       h=1
+    A E E E H L L N O O Q R S S U S T T I S Y       h=1
+    A E E E H L L N O O Q R S S U S T T I S Y       h=1
+    A E E E H L L N O O Q R S S U S T T I S Y       h=1
+    A E E E H L L N O O Q R S S U S T T I S Y       h=1
+    A E E E H L L N O O Q R S S U S T T I S Y       h=1
+    A E E E H L L N O O Q R S S S U T T I S Y       h=1
+    A E E E H L L N O O Q R S S S T U T I S Y       h=1
+    A E E E H L L N O O Q R S S S T T U I S Y       h=1
+    A E E E H I L L N O O Q R S S S T T U S Y       h=1
+    A E E E H I L L N O O Q R S S S S T T U Y       h=1
+    A E E E H I L L N O O Q R S S S S T T U Y       h=1

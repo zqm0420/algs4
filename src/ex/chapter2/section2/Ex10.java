@@ -1,9 +1,15 @@
-package learn.chapter2;
+package ex.chapter2.section2;
 
-import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
-public class Merge {
+/**
+ * 2.2.10 快速归并。
+ * 实现一个merge()方法,按降序将 a[]的后半部分复制到 aux[],然后将其归并回a[]中。
+ * 这样就可以去掉内循环中检测某半边是否用尽的代码。
+ * 注意:这样的排序产生的结果是不稳定的(请见2.5.1.8节)。
+ */
+
+public class Ex10 {
     private static Comparable[] aux;    //归并所需的辅助数组
 
     public static void sort(Comparable[] a) {
@@ -21,15 +27,18 @@ public class Merge {
 
     public static void merge(Comparable[] a, int lo, int mid, int hi) {
         //将a[lo..mid]和a[mid+1..hi]归并
-        int i = lo;
-        int j = mid + 1;
-        for (int k = lo; k <= hi; k++) {    //将a[lo..hi]复制到aux[lo..hi]
-            aux[k] = a[k];
+        for (int i = lo; i <= mid; i++) {
+            aux[i] = a[i];
         }
+
+        for (int j = mid + 1; j <= hi; j++) {
+            aux[j] = a[hi - j + mid + 1];
+        }
+
+        int i = lo;
+        int j = hi;
         for (int k = lo; k <= hi; k++) {    //归并回到a[lo..hi]
-            if (i > mid) a[k] = aux[j++];
-            else if (j > hi) a[k] = aux[i++];
-            else if (less(aux[j], aux[i])) a[k] = aux[j++];
+            if (less(aux[j], aux[i])) a[k] = aux[j--];
             else a[k] = aux[i++];
         }
     }
@@ -66,7 +75,7 @@ public class Merge {
         String str = "EASYQUESTION";
         String[] a = new String[12];
         for (int i = 0; i < a.length; i++) {
-            a[i] = str.substring(i, i+1);
+            a[i] = str.substring(i, i + 1);
         }
         sort(a);
         assert isSorted(a);

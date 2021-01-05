@@ -3,6 +3,7 @@ package learn.chapter2;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.Stopwatch;
+import ex.chapter2.section2.Ex11;
 
 /**
  * 比较两种排序算法
@@ -15,6 +16,9 @@ public class SortCompare {
         if (alg.equals("Shell")) Shell.sort(a);
         if (alg.equals("Merge")) Merge.sort(a);
         if (alg.equals("Quick")) Quick.sort(a);
+        if (alg.equals("Ex11")) Ex11.sort(a);
+        if (alg.equals("MergeX")) MergeX.sort(a);
+
 //        if (alg.equals("Heap")) Heap.sort(a);
         return timer.elapsedTime();
     }

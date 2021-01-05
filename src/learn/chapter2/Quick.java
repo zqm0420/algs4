@@ -62,7 +62,12 @@ public class Quick {
     }
 
     public static void main(String[] args) {    //从标准输入读取字符串, 将它们排序并输出
-        String[] a = In.readStrings();
+//        String[] a = In.readStrings();
+        String str = "EASYQUESTION";
+        String[] a = new String[12];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = str.substring(i, i+1);
+        }
         sort(a);
         assert isSorted(a);
         show(a);

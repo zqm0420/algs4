@@ -16,6 +16,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
 
     /**
      * 创建一个初始容量为max的优先队列
+     *
      * @param maxN
      */
     public MaxPQ(int maxN) {
@@ -24,20 +25,22 @@ public class MaxPQ<Key extends Comparable<Key>> {
 
     /**
      * 用a[]中的元素创建一个优先队列
+     *
      * @param a
      */
     public MaxPQ(Key[] a) {
-        pq = (Key[]) new Comparable[a.length+1];
-        for (int i=1;i<=a.length;i++){
-            pq[i] = a[i-1];
+        pq = (Key[]) new Comparable[a.length + 1];
+        for (int i = 1; i <= a.length; i++) {
+            pq[i] = a[i - 1];
         }
-        for (int i = N/2; i >=1 ; i--) {
+        for (int i = N / 2; i >= 1; i--) {
             sink(i);
         }
     }
 
     /**
      * 返回队列是否为空
+     *
      * @return
      */
     public boolean isEmpty() {
@@ -46,19 +49,21 @@ public class MaxPQ<Key extends Comparable<Key>> {
 
     /**
      * 返回优先队列中的元素个数
+     *
      * @return
      */
     public int size() {
         return N;
     }
 
-    /**
-     * 动态调整数组的大小
-     * @param max
-     */
+    /***************************************
+     * 用于动态调整数组大小的辅助函数
+     **************************************/
     private void resize(int max) {
         Key[] temp = (Key[]) new Comparable[max];
-        for (int i = 0; i < N; i++) temp[i] = pq[i];
+        for (int i = 0; i <= N; i++) {
+            temp[i] = pq[i];
+        }
         pq = temp;
     }
 
@@ -97,11 +102,12 @@ public class MaxPQ<Key extends Comparable<Key>> {
 
     /**
      * 向优先队列中插入一个元素
+     *
      * @param v
      */
     public void insert(Key v) {
-        if (N == pq.length) {
-            resize(2 * N + 1);
+        if (N == pq.length - 1) {
+            resize(pq.length);
         }
         pq[++N] = v;
         swim(N);
@@ -109,6 +115,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
 
     /**
      * 返回最大元素
+     *
      * @return
      */
     public Key max() {
@@ -117,6 +124,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
 
     /**
      * 删除并返回最大元素
+     *
      * @return
      */
     public Key delMax() {
@@ -124,9 +132,21 @@ public class MaxPQ<Key extends Comparable<Key>> {
         exch(1, N);
         pq[N--] = null;
         sink(1);
-        if (N>1 && N==pq.length/4){
-            resize(pq.length/2);
+        if (N > 1 && N == (pq.length - 1) / 4) {
+            resize(pq.length / 2);
         }
         return max;
+    }
+
+    public static void main(String[] args) {
+        String str = "D I E M C P Q L Z";
+        String[] a = str.split(" ");
+        MaxPQ<String> maxPQ = new MaxPQ<>();
+        for (int i = 0; i < a.length; i++) {
+            maxPQ.insert(a[i]);
+            if (i == 2 || i == 7) {
+                maxPQ.delMax();
+            }
+        }
     }
 }

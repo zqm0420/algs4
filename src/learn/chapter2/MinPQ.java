@@ -60,7 +60,7 @@ public class MinPQ<Key extends Comparable<Key>> {
      */
     private void resize(int max) {
         Key[] temp = (Key[]) new Comparable[max];
-        for (int i = 0; i < n; i++) temp[i] = pq[i];
+        for (int i = 0; i <= n; i++) temp[i] = pq[i];
         pq = temp;
     }
 

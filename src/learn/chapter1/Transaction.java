@@ -3,7 +3,7 @@ package learn.chapter1;
 import java.util.Arrays;
 import java.util.Date;
 
-public class Transaction {
+public class Transaction implements Comparable<Transaction> {
     private String who; // customer
     private Date when; // date
     private double amount; // amount
@@ -75,6 +75,15 @@ public class Transaction {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "who='" + who + '\'' +
+                ", when=" + when +
+                ", amount=" + amount +
+                '}';
     }
 
     public int compareTo(Transaction that) {

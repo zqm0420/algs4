@@ -1,5 +1,7 @@
 package learn.chapter3;
 
+import learn.chapter1.Queue;
+
 /**
  * 基于二分查找树的符号表
  */
@@ -164,7 +166,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     public void delete(Key key) {
-
+        root = delete(root, key);
     }
 
     private Node delete(Node x, Key key) {
@@ -173,8 +175,34 @@ public class BST<Key extends Comparable<Key>, Value> {
         if (cmp < 0) delete(x.left, key);
         else if (cmp > 0) delete(x.right, key);
         else {
-
+            if (x.right==null)return null;
+            if (x.left==null)return null;
+            Node t = x;
+            x = min(t.right);
+            x.right = deleteMin(t.right);
+            x.left = t.left;
         }
+        x.n = size(x.left)+size(x.right)+1;
+        return x;
+    }
+
+    public Iterable<Key> keys(){
+        return keys(this.min(), this.max());
+    }
+
+    public Iterable<Key> keys(Key lo, Key hi){
+        Queue<Key> queue = new Queue<>();
+        keys(root, queue, lo, hi);
+        return queue;
+    }
+
+    private void keys(Node x, Queue queue, Key lo, Key hi){
+        if (x==null) return;
+        int cmpLo = lo.compareTo(x.key);
+        int cmpHi = hi.compareTo(x.key);
+        if (cmpLo<0)    keys(x.left, queue, lo, hi);
+        if (cmpLo<=0 && cmpHi>=0)   queue.enqueue(x.key);
+        if (cmpHi>0)    keys(x.right, queue, lo, hi);
     }
 
 
@@ -186,7 +214,9 @@ public class BST<Key extends Comparable<Key>, Value> {
             st.put(a[i], i);
         }
         System.out.println(st.rank("D"));
-        st.deleteMax();
+//        st.deleteMax();
+//        st.delete("A");
+        Iterable<String> keys = st.keys();
         int j = 0;
 
     }

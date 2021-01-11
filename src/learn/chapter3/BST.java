@@ -46,6 +46,8 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
     }
 
+
+
     public void put(Key key, Value value) {
         root = put(root, key, value);
     }
@@ -205,6 +207,35 @@ public class BST<Key extends Comparable<Key>, Value> {
         if (cmpHi>0)    keys(x.right, queue, lo, hi);
     }
 
+    /**
+     * 练习3.2.5 计算树的高度
+     * 方案一：使用递归（用时为线性级别，所需空间和树高成正比）
+     * 方案二：模仿size()在每个节点中添加一个变量（所需空间为线性级别，查询耗时为常数）
+     * @return
+     */
+    public int height(){
+        //方案一：使用递归
+        return height(root);
+    }
+
+    public int height(Node x){
+        if (x==null) return 0;
+        return 1+ Math.max(height(x.left), height(x.right));
+    }
+
+    /*************************************
+     * 检查是否是一棵二分查找树
+     ************************************/
+    private boolean isBST() {
+        return isBST(root, null, null);
+    }
+
+    private boolean isBST(Node x, Key min, Key max) {
+        if (x == null) return true;
+        if (min != null && x.key.compareTo(min) <= 0) return false;
+        if (max != null && x.key.compareTo(max) >= 0) return false;
+        return isBST(x.left, min, x.key) && isBST(x.right, x.key, max);
+    }
 
     public static void main(String[] args) {
         String str = "S E A R C H E X A M P L E";
@@ -217,6 +248,8 @@ public class BST<Key extends Comparable<Key>, Value> {
 //        st.deleteMax();
 //        st.delete("A");
         Iterable<String> keys = st.keys();
+        System.out.println(st.height());
+        System.out.println(st.isBST());
         int j = 0;
 
     }

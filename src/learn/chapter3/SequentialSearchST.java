@@ -3,7 +3,7 @@ package learn.chapter3;
 import learn.chapter1.Queue;
 
 /**
- * 符号表-----字典----HashMap
+ * 使用基本链表实现的无序符号表，查找和插入都需要遍历，效率非常慢
  */
 public class SequentialSearchST<Key, Value> {
     private Node first;

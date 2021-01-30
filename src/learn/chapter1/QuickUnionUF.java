@@ -34,7 +34,7 @@ public class QuickUnionUF {
 
         if (pRoot == qRoot) return;
 
-        id[qRoot] = pRoot;
+        id[pRoot] = qRoot;
 
         count--;
     }

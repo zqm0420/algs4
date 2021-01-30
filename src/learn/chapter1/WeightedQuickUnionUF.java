@@ -1,4 +1,7 @@
 package learn.chapter1;
+/**
+ * union-find算法的实现（加权quick-union算法）
+ */
 
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;

@@ -1,7 +1,7 @@
 package learn.chapter4;
 
 /**
- * 加权边的API
+ * 加权边(无向）的API
  */
 public class Edge implements Comparable<Edge> {
     private final int v;

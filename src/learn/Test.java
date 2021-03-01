@@ -10,7 +10,7 @@ import java.util.Stack;
 public class Test {
     public static void main(String[] args)
     {
-        String str = "美国";
-        System.out.println(str.hashCode());
+        String str = "-15";
+        System.out.println(Integer.parseInt(str)+1);
     }
 }
